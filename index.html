@@ -307,19 +307,23 @@
 
   .divider{
     display:flex; align-items:center; justify-content:center;
-    gap:14px;
+    gap:0;
     max-width:1080px; margin:0 auto;
     padding:0 32px;
   }
   .divider::before, .divider::after{
     content:''; flex:1; height:1px;
-    background:linear-gradient(to right, transparent, var(--card-line));
+    background:linear-gradient(to right, transparent, var(--gold-dim) 35%, var(--gold) 85%, var(--gold));
   }
-  .divider::after{ background:linear-gradient(to left, transparent, var(--card-line)); }
+  .divider::after{
+    background:linear-gradient(to left, transparent, var(--gold-dim) 35%, var(--gold) 85%, var(--gold));
+  }
   .divider i{
-    width:6px; height:6px;
-    border:1px solid var(--gold);
-    transform:rotate(45deg);
+    width:7px; height:7px;
+    margin:0 16px;
+    border-radius:50%;
+    background:var(--gold-light);
+    box-shadow:0 0 10px 2px var(--gold-dim);
     flex-shrink:0;
   }
 
@@ -579,6 +583,8 @@
   <div class="scroll-cue">SCROLL</div>
 </section>
 
+<div class="divider"><i></i></div>
+
 <section id="about" class="wrap reveal">
   <div class="eyebrow">About</div>
   <div class="about-grid">
@@ -606,6 +612,7 @@
     <div class="skill-card"><div class="skill-index">05</div><div class="skill-name">Databases</div><div class="skill-rule"></div></div>
     <div class="skill-card"><div class="skill-index">06</div><div class="skill-name">Git</div><div class="skill-rule"></div></div>
     <div class="skill-card"><div class="skill-index">07</div><div class="skill-name">Docker</div><div class="skill-rule"></div></div>
+    <div class="skill-card"><div class="skill-index">08</div><div class="skill-name">Networking</div><div class="skill-rule"></div></div>
   </div>
 </section>
 
@@ -706,6 +713,8 @@
     <a class="dir-row" href="https://www.quora.com/profile/TheOnlyKIngpin" target="_blank" rel="noopener"><span class="dir-label">Quora</span><span class="dir-handle">TheOnlyKIngpin <span class="dir-arrow">→</span></span></a>
   </div>
 </section>
+
+<div class="divider"><i></i></div>
 
 <footer class="wrap">
   <span class="nav-mark">R · R</span>
