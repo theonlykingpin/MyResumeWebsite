@@ -1,320 +1,800 @@
 <!DOCTYPE html>
-<html lang="en-US">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Reza Rohani - Online Resume</title>
-    <link rel="shortcut icon" type="image/ico" href="statics/favicon/favicon.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
-    <link rel="preload" as="style"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"
-        media="print" onload="this.media='all'" />
-    <noscript>
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" />
-    </noscript>
-    <link rel="stylesheet" type="text/css" href="statics/css/font-awesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="statics/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="statics/css/aos.css">
-    <link rel="stylesheet" type="text/css" href="statics/css/main.css">
-    <noscript>
-        <style>
-            [data-aos] {
-                opacity: 1 !important;
-                transform: translate(0) scale(1) !important;
-            }
-        </style>
-    </noscript>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Reza Rohani — IT Manager &amp; Back-End Web Developer. Python, Django, DRF, Docker.">
+<meta property="og:title" content="Reza Rohani — Backend Engineer">
+<meta property="og:description" content="IT Manager &amp; Back-End Web Developer based in Shiraz, Iran.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230A0C0F'/%3E%3Ccircle cx='32' cy='32' r='27' fill='none' stroke='%23CBA135' stroke-width='2'/%3E%3Ctext x='32' y='41' font-family='Georgia,serif' font-style='italic' font-size='26' fill='%23E8CD7A' text-anchor='middle'%3ERR%3C/text%3E%3C/svg%3E">
+<title>Reza Rohani — Backend Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A0C0F;
+    --card:#14171B;
+    --card-line:#21252b;
+    --gold:#CBA135;
+    --gold-light:#E8CD7A;
+    --gold-dim:rgba(203,161,53,0.25);
+    --ivory:#F2EFE6;
+    --muted:#8A8F98;
+    --serif: 'Cormorant Garamond', serif;
+    --sans: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--ink);
+    color:var(--ivory);
+    font-family:var(--sans);
+    line-height:1.6;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* fine grain for tactile, printed-paper depth */
+  body::before{
+    content:'';
+    position:fixed; inset:0;
+    z-index:1;
+    pointer-events:none;
+    opacity:0.035;
+    mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  ::-webkit-scrollbar{ width:9px; }
+  ::-webkit-scrollbar-track{ background:var(--ink); }
+  ::-webkit-scrollbar-thumb{ background:var(--gold-dim); border:2px solid var(--ink); }
+  ::-webkit-scrollbar-thumb:hover{ background:var(--gold); }
+
+  /* intro veil */
+  .veil{
+    position:fixed; inset:0; z-index:200;
+    background:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    transition:opacity .9s ease, visibility .9s ease;
+  }
+  .veil span{
+    font-family:var(--serif); font-style:italic;
+    font-size:34px; color:var(--gold-light);
+    opacity:0;
+    animation:vealfade 1.6s ease forwards;
+  }
+  @keyframes vealfade{
+    0%{ opacity:0; letter-spacing:0.3em; }
+    40%{ opacity:1; letter-spacing:0.08em; }
+    100%{ opacity:1; letter-spacing:0.04em; }
+  }
+  .veil.hide{ opacity:0; visibility:hidden; pointer-events:none; }
+  @media (prefers-reduced-motion:reduce){
+    .veil{ display:none; }
+  }
+
+  ::selection{ background:var(--gold); color:var(--ink); }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:28px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:28px; height:1px;
+    background:var(--gold);
+  }
+
+  /* ===== NAV ===== */
+  nav{
+    position:fixed; top:0; left:0; right:0;
+    z-index:50;
+    padding:22px 32px;
+    display:flex; justify-content:space-between; align-items:center;
+    background:linear-gradient(to bottom, rgba(10,12,15,0.92), rgba(10,12,15,0));
+    backdrop-filter:blur(6px);
+  }
+  .nav-mark{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:20px;
+    letter-spacing:0.03em;
+    color:var(--gold-light);
+  }
+  .nav-links{
+    display:flex; gap:30px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .nav-links a{ position:relative; transition:color .3s; }
+  .nav-links a:hover, .nav-links a:focus-visible{ color:var(--gold-light); }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:-6px; width:0; height:1px;
+    background:var(--gold); transition:width .3s;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  @media (max-width:680px){ .nav-links{ display:none; } }
+
+  /* ===== HERO ===== */
+  .hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    padding-top:90px;
+  }
+  .hero::before{
+    content:'';
+    position:absolute;
+    top:50%; right:8%;
+    width:520px; height:520px;
+    transform:translateY(-50%);
+    background:radial-gradient(circle, rgba(203,161,53,0.13), transparent 70%);
+    pointer-events:none;
+    z-index:0;
+  }
+  @media (max-width:780px){ .hero::before{ width:340px; height:340px; right:50%; transform:translate(50%,-50%); } }
+
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:60px;
+    align-items:center;
+    position:relative;
+    z-index:1;
+  }
+  @media (max-width:780px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .seal{ order:-1; margin:0 auto 20px; }
+  }
+
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(56px, 9vw, 118px);
+    line-height:0.96;
+    letter-spacing:-0.01em;
+    color:var(--ivory);
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold-light);
+  }
+
+  .hero-rule{
+    width:120px; height:1px;
+    background:linear-gradient(to right, var(--gold), transparent);
+    margin:28px 0 22px;
+    transform-origin:left;
+    animation:drawline 1.4s ease forwards;
+  }
+  @keyframes drawline{ from{ transform:scaleX(0); } to{ transform:scaleX(1); } }
+
+  .terminal-line{
+    font-family:var(--mono);
+    font-size:15px;
+    color:var(--muted);
+    min-height:22px;
+  }
+  .terminal-line .prompt{ color:var(--gold); }
+  .terminal-line .cursor{
+    display:inline-block; width:8px; height:15px;
+    background:var(--gold-light);
+    margin-left:4px;
+    animation:blink 1s steps(1) infinite;
+    vertical-align:-2px;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  .cv-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-top:30px;
+    padding:13px 26px;
+    border:1px solid var(--gold);
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.08em;
+    color:var(--gold-light);
+    transition:background .3s ease, color .3s ease;
+    direction:rtl;
+  }
+  .cv-btn:hover, .cv-btn:focus-visible{
+    background:var(--gold);
+    color:var(--ink);
+  }
+  .cv-arrow{ direction:ltr; }
+
+  .seal{
+    width:170px; height:170px;
+    border-radius:50%;
+    border:1px solid var(--gold-dim);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    flex-shrink:0;
+  }
+  .seal::before{
+    content:'';
+    position:absolute; inset:14px;
+    border:1px solid var(--gold-dim);
+    border-radius:50%;
+  }
+  .seal-mono{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:46px;
+    color:var(--gold-light);
+    letter-spacing:0.02em;
+  }
+  .seal-orbit{
+    position:absolute; inset:0;
+    animation:spin 30s linear infinite;
+  }
+  @media (prefers-reduced-motion:reduce){
+    .seal-orbit{ animation:none; }
+  }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+  .seal-orbit i{
+    position:absolute;
+    width:1px; height:7px;
+    background:var(--gold-dim);
+    left:50%; top:3px;
+    transform-origin:0.5px 82px;
+  }
+
+  .scroll-cue{
+    position:absolute; bottom:36px; left:32px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.18em;
+    color:var(--muted);
+    display:flex; align-items:center; gap:10px;
+  }
+  .scroll-cue::after{
+    content:'';
+    width:1px; height:34px;
+    background:linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  .divider{
+    display:flex; align-items:center; justify-content:center;
+    gap:14px;
+    max-width:1080px; margin:0 auto;
+    padding:0 32px;
+  }
+  .divider::before, .divider::after{
+    content:''; flex:1; height:1px;
+    background:linear-gradient(to right, transparent, var(--card-line));
+  }
+  .divider::after{ background:linear-gradient(to left, transparent, var(--card-line)); }
+  .divider i{
+    width:6px; height:6px;
+    border:1px solid var(--gold);
+    transform:rotate(45deg);
+    flex-shrink:0;
+  }
+
+  /* ===== SECTION BASE ===== */
+  section{ padding:130px 0; position:relative; }
+  section.tight{ padding-top:0; }
+
+  .reveal{
+    opacity:0; transform:translateY(26px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  h2.section-title{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(32px, 4vw, 46px);
+    margin-bottom:50px;
+    max-width:640px;
+  }
+
+  /* ===== ABOUT ===== */
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.8fr 1.2fr;
+    gap:70px;
+  }
+  @media (max-width:780px){ .about-grid{ grid-template-columns:1fr; gap:30px; } }
+
+  .stat-figure{
+    font-family:var(--serif);
+    font-size:96px;
+    line-height:1;
+    color:var(--gold-light);
+    font-weight:500;
+  }
+  .stat-label{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-top:10px;
+  }
+
+  .about-text p{
+    font-size:18px;
+    color:#cfcabd;
+    margin-bottom:18px;
+  }
+  .about-text strong{ color:var(--gold-light); font-weight:500; }
+
+  /* ===== SKILLS ===== */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--card-line);
+    border:1px solid var(--card-line);
+    perspective:900px;
+  }
+  @media (max-width:780px){ .skills-grid{ grid-template-columns:repeat(2, 1fr); } }
+
+  .skill-card{
+    background:var(--card);
+    padding:34px 26px;
+    transition:background .35s ease, transform .35s ease;
+    transform-style:preserve-3d;
+    will-change:transform;
+  }
+  .skill-card:hover{ background:#181c21; }
+  .skill-index{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--gold);
+    margin-bottom:18px;
+    letter-spacing:0.1em;
+  }
+  .skill-name{
+    font-family:var(--serif);
+    font-size:24px;
+    font-style:italic;
+    color:var(--ivory);
+  }
+  .skill-rule{
+    width:24px; height:1px; background:var(--gold-dim);
+    margin-top:14px;
+    transition:width .35s ease, background .35s ease;
+  }
+  .skill-card:hover .skill-rule{ width:48px; background:var(--gold); }
+
+  /* ===== TIMELINE (experience + education) ===== */
+  .timeline{
+    position:relative;
+    padding-left:44px;
+    border-left:1px solid var(--gold-dim);
+  }
+  .t-item{
+    position:relative;
+    padding-bottom:52px;
+  }
+  .t-item:last-child{ padding-bottom:0; }
+  .t-item::before{
+    content:'';
+    position:absolute;
+    left:-50px; top:4px;
+    width:9px; height:9px;
+    background:var(--ink);
+    border:1px solid var(--gold);
+    transform:rotate(45deg);
+  }
+  .t-date{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.06em;
+    color:var(--gold);
+    margin-bottom:8px;
+  }
+  .t-role{
+    font-family:var(--serif);
+    font-size:25px;
+    color:var(--ivory);
+    margin-bottom:6px;
+  }
+  .t-org{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:12px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .t-desc{
+    color:#b9b4a6;
+    max-width:560px;
+    font-size:15.5px;
+  }
+
+  /* ===== TWO-COL SECTION (experience / education) ===== */
+  .two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:90px;
+  }
+  @media (max-width:900px){ .two-col{ grid-template-columns:1fr; gap:80px; } }
+
+  /* ===== CONTACT ===== */
+  .contact-top{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:30px 60px;
+    margin-bottom:70px;
+  }
+  @media (max-width:680px){ .contact-top{ grid-template-columns:1fr; } }
+
+  .contact-row{
+    border-bottom:1px solid var(--card-line);
+    padding-bottom:14px;
+  }
+  .contact-key{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:8px;
+  }
+  .contact-val{
+    font-family:var(--serif);
+    font-size:21px;
+    font-style:italic;
+    color:var(--gold-light);
+    transition:color .25s;
+  }
+  a.contact-val:hover{ color:var(--ivory); }
+
+  .directory{
+    border-top:1px solid var(--card-line);
+  }
+  .dir-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:18px 0;
+    border-bottom:1px solid var(--card-line);
+    font-family:var(--mono);
+    font-size:13px;
+    transition:padding-left .3s ease;
+  }
+  .dir-row:hover{ padding-left:10px; }
+  .dir-label{
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ivory);
+  }
+  .dir-arrow{
+    color:var(--gold);
+    opacity:0;
+    transition:opacity .3s ease;
+  }
+  .dir-row:hover .dir-arrow{ opacity:1; }
+  .dir-row:hover .dir-label{ color:var(--gold-light); }
+  .dir-handle{ color:var(--muted); }
+
+  /* ===== FOOTER ===== */
+  footer{
+    border-top:1px solid var(--card-line);
+    padding:40px 0 60px;
+    display:flex; justify-content:space-between; align-items:center;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.1em;
+    color:var(--muted);
+  }
+  footer .nav-mark{ font-size:16px; }
+  @media (max-width:580px){ footer{ flex-direction:column; gap:18px; text-align:center; } }
+
+  :focus-visible{ outline:1px solid var(--gold); outline-offset:3px; }
+</style>
 </head>
+<body>
 
-<body id="top">
-    <header class="d-print-none">
-        <div class="container text-center text-lg-left">
-            <div class="py-2 clearfix">
-            </div>
-        </div>
-    </header>
-    <div class="page-content">
-        <div class="container">
-            <div class="cover shadow-lg bg-white">
-                <div class="cover-bg p-3 p-lg-4 text-white">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-5" data-aos="fade" data-aos-delay="100">
-                            <div class="avatar hover-effect bg-white shadow-sm "><img src="statics/image/avatar2.jpg"
-                                    width="180" height="210" alt="Smiley face" /></div>
-                        </div>
-                        <div class="col-lg-8 col-md-7 text-center text-md-start">
-                            <h2 class="h1 mt-2" data-aos="fade" data-aos-delay="300">Reza Rohani</h2>
-                            <p data-aos="fade" data-aos-delay="300"> >> IT Manager @ sarvestan.sums.ac.ir | Back-End WEB Developer</p>
-                            <div class="d-print-none" data-aos="fade" data-aos-delay="300">
-                                <a href="statics/cv/resume.pdf" class="btn btn-warning mt-1 me-1">مشاهده رزومه فارسی</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-section pt-4 px-3 px-lg-4 mt-1">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h2 class="h3 mb-2" data-aos="fade" data-aos-delay="500">About Me</h2>
-                            <p data-aos="fade" data-aos-delay="500">Hello! My name is Reza. I have more than 15 years of
-                                experience working with computers, hardware, software and operating systems and computer
-                                networking. I am a Backend developer with more than 3 years of experience in Python,
-                                Django,
-                                DRF, FastAPI, Flask and etc. my main skill is Backend and Database. and I am working
-                                with
-                                python and frameworks and also I have enough familiarity with front end development.</p>
-                        </div>
-                    </div>
-                </div>
-                <hr class="d-print-none" />
-                <div class="skills-section px-3 px-lg-4">
-                    <h2 class="h3 mb-3" data-aos="fade" data-aos-delay="900">Some Professional Skills</h2>
-                    <div class="row" data-aos="fade" data-aos-delay="900">
-                        <div class="col-md-6">
-                            <div class="mb-2"><span>Python</span>
-                                <div class="progress my-1">
-                                    <div class="progress-bar bg-primary" role="progressbar" data-aos="fade-right"
-                                        data-aos-delay="1300" data-aos-anchor=".skills-section" style="width: 80%"
-                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="mb-2"><span>GoLang</span>
-                                <div class="progress my-1">
-                                    <div class="progress-bar bg-primary" role="progressbar" data-aos="fade-right"
-                                        data-aos-delay="1300" data-aos-anchor=".skills-section" style="width: 20%"
-                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="mb-2"><span>Django</span>
-                                <div class="progress my-1">
-                                    <div class="progress-bar bg-primary" role="progressbar" data-aos="fade-right"
-                                        data-aos-delay="1500" data-aos-anchor=".skills-section" style="width: 80%"
-                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="mb-2"><span>Django Rest Framework</span>
-                                <div class="progress my-1">
-                                    <div class="progress-bar bg-primary" role="progressbar" data-aos="fade-right"
-                                        data-aos-delay="1700" data-aos-anchor=".skills-section" style="width: 80%"
-                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-2"><span>Databases</span>
-                                <div class="progress my-1">
-                                    <div class="progress-bar bg-primary" role="progressbar" data-aos="fade-right"
-                                        data-aos-delay="1900" data-aos-anchor=".skills-section" style="width: 60%"
-                                        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="mb-2"><span>Git</span>
-                                <div class="progress my-1">
-                                    <div class="progress-bar bg-primary" role="progressbar" data-aos="fade-right"
-                                        data-aos-delay="2100" data-aos-anchor=".skills-section" style="width: 60%"
-                                        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="mb-2"><span>Docker</span>
-                                <div class="progress my-1">
-                                    <div class="progress-bar bg-primary" role="progressbar" data-aos="fade-right"
-                                        data-aos-delay="2300" data-aos-anchor=".skills-section" style="width: 60%"
-                                        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="d-print-none" />
-                <div class="work-experience-section px-3 px-lg-4">
-                    <h2 class="h3 mb-4" data-aos="fade" data-aos-delay="100">Work Experiences</h2>
-                    <div class="timeline">
-                        <div class="timeline-card timeline-card-primary card shadow-sm" data-aos="fade-up"
-                            data-aos-delay="100">
-                            <div class="card-body">
-                                <div class="h5 mb-1">Python and Back-End Developer<span class="text-muted h6"> -
-                                        Ati-Shahr Hooshmand Iranian</span></div>
-                                <div class="text-muted text-small mb-2">2021-02-19 -> 2021-05-19</div>
-                                <div>I was a backend team member and working on backend of company services.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="timeline-card timeline-card-primary card shadow-sm" data-aos="fade-up"
-                            data-aos-delay="100">
-                            <div class="card-body">
-                                <div class="h5 mb-1">Python and Back-End Developer<span class="text-muted h6"> -
-                                        Freelancer</span></div>
-                                <div class="text-muted text-small mb-2">2020-02-01 -> Present</div>
-                                <div>I am a python and back-end developer and working in freelance with employers and
-                                    companies and persons around the world.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="d-print-none" />
-                <div class="education-section px-3 px-lg-4">
-                    <h2 class="h3 mb-4" data-aos="fade" data-aos-delay="100">Educations</h2>
-                    <div class="timeline">
-                        <div class="timeline-card timeline-card-primary card shadow-sm" data-aos="fade-up"
-                            data-aos-delay="100">
-                            <div class="card-body">
-                                <div class="h5 mb-1">Google IT Automation and Python Professional Courses<span
-                                        class="text-muted h6">from Google - Coursera</span></div>
-                                <div class="text-muted text-small mb-2">2021-05-15 -> 2021-11-15</div>
-                            </div>
-                        </div>
-                        <div class="timeline-card timeline-card-primary card shadow-sm" data-aos="fade-up"
-                            data-aos-delay="100">
-                            <div class="card-body">
-                                <div class="h5 mb-1">Professional Python Programming Courses<span
-                                        class="text-muted h6">from University of Michigan - Coursera</span></div>
-                                <div class="text-muted text-small mb-2">2021-11-15 -> 2021-11-15</div>
-                            </div>
-                        </div>
-                        <div class="timeline-card timeline-card-primary card shadow-sm" data-aos="fade-up"
-                            data-aos-delay="100">
-                            <div class="card-body">
-                                <div class="h5 mb-1">Sololearn-Udemy Complete Python and Frontend Courses<span
-                                        class="text-muted h6">from Sololearn and Udemy sites</span></div>
-                                <div class="text-muted text-small mb-2">2020-01-01 -> 2022-01-01</div>
-                            </div>
-                        </div>
-                        <div class="timeline-card timeline-card-primary card shadow-sm" data-aos="fade-up"
-                            data-aos-delay="100">
-                            <div class="card-body">
-                                <div class="h5 mb-1">Numerous training courses from reputable and self-learning sites
-                                    and
-                                    books<span class="text-muted h6">from Internet - Books</span></div>
-                                <div class="text-muted text-small mb-2">2013-01-01
-                                    -> NOW
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr class="d-print-none" />
-                <div class="contant-section px-3 px-lg-4 pb-4" id="contact" data-aos="fade" data-aos-delay="100">
-                    <h2 class="h3 text mb-3">Contact Me</h2>
-                    <div class="row">
-                        <div class="d-print-none">
-                        </div>
-                        <div class="col-md-5" data-aos="fade" data-aos-delay="100">
-                            <div class="row mt-2">
-                                <div class="col-sm-4">
-                                    <div class="pb-1">Email</div>
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="pb-1 text-secondary">theonlykingpin@outlook.com</div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="pb-1">Gmail</div>
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="pb-1 text-secondary">theonlykingpin@gmail.com</div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="pb-1">Phone</div>
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="pb-1 text-secondary">+98-916-442-0023</div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="pb-1">Whatsapp</div>
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="pb-1 text-secondary">+98-916-442-0023</div>
-                                </div>
-                                <div class="col-sm-4">
-                                    <div class="pb-1">Address</div>
-                                </div>
-                                <div class="col-sm-8">
-                                    <div class="pb-1 text-secondary">Iran-Fars-Shiraz</div>
-                                </div>
-                                <div class="container text-center text-lg-left">
-                                    <div class="clearfix">
-                                        <nav role="navigation">
-                                            <ul class="nav justify-content-left">
-                                                <li class="nav-item"><a class="nav-link"
-                                                        href="https://t.me/TheOnlyKingpin" title="Telegram"><i
-                                                            class="fab fa-telegram"></i><span
-                                                            class="menu-title sr-only">Telegram</span></a>
-                                                </li>
-                                                <li class="nav-item"><a class="nav-link"
-                                                        href="https://www.linkedin.com/in/reza-rohani-47853b212/"
-                                                        title="Linkedin"><i class="fab fa-linkedin"></i><span
-                                                            class="menu-title sr-only">Linkedin</span></a>
-                                                </li>
-                                                <li class="nav-item"><a class="nav-link"
-                                                        href="https://www.instagram.com/__rezarohani__/"
-                                                        title="Instagram"><i class="fab fa-instagram"></i><span
-                                                            class="menu-title sr-only">Instagram</span></a>
-                                                </li>
-                                                <li class="nav-item"><a class="nav-link"
-                                                        href="https://twitter.com/RezaRoh59001712" title="Twitter"><i
-                                                            class="fab fa-twitter"></i><span
-                                                            class="menu-title sr-only">Twitter</span></a>
-                                                </li>
-                                                <li class="nav-item"><a class="nav-link"
-                                                        href="https://github.com/theonlykingpin" title="Github"><i
-                                                            class="fab fa-github"></i><span
-                                                            class="menu-title sr-only">Github</span></a>
-                                                </li>
-                                                <li class="nav-item"><a class="nav-link"
-                                                        href="https://gitlab.com/theonlykingpin" title="Gitlab"><i
-                                                            class="fab fa-gitlab"></i><span
-                                                            class="menu-title sr-only">Gitlab</span></a>
-                                                </li>
-                                                <li class="nav-item"><a class="nav-link"
-                                                        href="https://stackoverflow.com/users/17269541/reza-rohani"
-                                                        title="StackOverFlow"><i class="fab fa-stack-overflow"></i>
-                                                        <span class="menu-title sr-only">StackOverFlow</span></a>
-                                                </li>
-                                                <li class="nav-item"><a class="nav-link"
-                                                        href="https://discord.gg/fapAV7kN" title="Discord"><i
-                                                            class="fab fa-discord"></i><span
-                                                            class="menu-title sr-only">Discord</span></a>
-                                                </li>
-                                                <li class="nav-item"><a class="nav-link"
-                                                        href="https://www.reddit.com/user/Both-Leader-4775"
-                                                        title="Reddit"><i class="fab fa-reddit"></i><span
-                                                            class="menu-title sr-only">Reddit</span></a>
-                                                </li>
-                                                <li class="nav-item"><a class="nav-link"
-                                                        href="https://www.quora.com/profile/TheOnlyKIngpin"
-                                                        title="Quora"><i class="fab fa-quora"></i><span
-                                                            class="menu-title sr-only">Quora</span></a>
-                                                </li>
-                                                <li class="nav-item"><a class="nav-link"
-                                                        href="https://leetcode.com/theonlykingpin/" title="Leetcode"><i
-                                                            class="fab fa-hacker-news"></i><span
-                                                            class="menu-title sr-only">LeetCode</span></a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <footer class="d-print-none">
-                <div class="container text-center text-lg-left">
-                    <div class="py-2 clearfix">
-                    </div>
-                </div>
-            </footer>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script src="statics/scripts/bootstrap.bundle.min.js"></script>
-            <script src="statics/scripts/aos.js"></script>
-            <script src="statics/scripts/main.js"></script>
-        </div>
+<div class="veil" id="veil"><span>R · Rohani</span></div>
+
+<nav>
+  <span class="nav-mark">R · R</span>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Stack</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">Portfolio — Backend Engineering</div>
+      <h1>Reza<br><em>Rohani</em></h1>
+      <div class="hero-rule"></div>
+      <div class="terminal-line">
+        <span class="prompt">$</span> whoami<br>
+        <span id="typed-role"></span><span class="cursor"></span>
+      </div>
+      <a class="cv-btn" href="https://rezarh.ir/statics/cv/resume.pdf" target="_blank" rel="noopener">
+        مشاهده رزومه فارسی <span class="cv-arrow">↗</span>
+      </a>
     </div>
-</body>
+    <div class="seal">
+      <div class="seal-mono">RR</div>
+      <div class="seal-orbit" aria-hidden="true"></div>
+    </div>
+  </div>
+  <div class="scroll-cue">SCROLL</div>
+</section>
 
+<section id="about" class="wrap reveal">
+  <div class="eyebrow">About</div>
+  <div class="about-grid">
+    <div>
+      <div class="stat-figure">0+</div>
+      <div class="stat-label">Years in Computing</div>
+    </div>
+    <div class="about-text">
+      <p>I have spent more than fifteen years working closely with computers — hardware, operating systems, and networks — before specialising as a <strong>Back-End Web Developer</strong>.</p>
+      <p>My core craft is <strong>Backend &amp; Database engineering</strong>, built primarily on Python: Django, Django REST Framework, FastAPI, and Flask, with three-plus years of dedicated focus. I also hold enough front-end fluency to work comfortably across the full stack.</p>
+      <p>I currently serve as <strong>IT Manager</strong> at Sarvestan, Shiraz University of Medical Sciences, while continuing independent freelance development work worldwide.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><i></i></div>
+
+<section id="skills" class="wrap reveal">
+  <h2 class="section-title">Core <em style="font-style:italic; color:var(--gold-light);">Stack</em></h2>
+  <div class="skills-grid">
+    <div class="skill-card"><div class="skill-index">01</div><div class="skill-name">Python</div><div class="skill-rule"></div></div>
+    <div class="skill-card"><div class="skill-index">02</div><div class="skill-name">GoLang</div><div class="skill-rule"></div></div>
+    <div class="skill-card"><div class="skill-index">03</div><div class="skill-name">Django</div><div class="skill-rule"></div></div>
+    <div class="skill-card"><div class="skill-index">04</div><div class="skill-name">DRF</div><div class="skill-rule"></div></div>
+    <div class="skill-card"><div class="skill-index">05</div><div class="skill-name">Databases</div><div class="skill-rule"></div></div>
+    <div class="skill-card"><div class="skill-index">06</div><div class="skill-name">Git</div><div class="skill-rule"></div></div>
+    <div class="skill-card"><div class="skill-index">07</div><div class="skill-name">Docker</div><div class="skill-rule"></div></div>
+    <div class="skill-card"><div class="skill-index">08</div><div class="skill-name">Networking</div><div class="skill-rule"></div></div>
+  </div>
+</section>
+
+<div class="divider"><i></i></div>
+
+<section id="experience" class="wrap reveal">
+  <div class="two-col">
+    <div>
+      <div class="eyebrow">Experience</div>
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-date">Feb 2020 — Present</div>
+          <div class="t-role">Backend Developer</div>
+          <div class="t-org">Freelance</div>
+          <div class="t-desc">Working independently with employers, companies and individuals around the world as a Python and back-end developer.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-date">Feb 2021 — May 2021</div>
+          <div class="t-role">Backend Developer</div>
+          <div class="t-org">Ati-Shahr Hooshmand Iranian</div>
+          <div class="t-desc">Member of the backend team, building and maintaining backend services for the company's products.</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="education">
+      <div class="eyebrow">Education</div>
+      <div class="timeline">
+        <div class="t-item">
+          <div class="t-date">2013 — Ongoing</div>
+          <div class="t-role">Continuous Self-Study</div>
+          <div class="t-org">Internet &amp; Books</div>
+          <div class="t-desc">Numerous training courses and reading from reputable sources, sustained as an ongoing practice.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-date">2020 — 2022</div>
+          <div class="t-role">Python &amp; Frontend</div>
+          <div class="t-org">Sololearn / Udemy</div>
+          <div class="t-desc">Completed coursework spanning Python fundamentals through to front-end development.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-date">Nov 2021</div>
+          <div class="t-role">Professional Python Programming</div>
+          <div class="t-org">University of Michigan — Coursera</div>
+          <div class="t-desc">Professional-track coursework in Python programming.</div>
+        </div>
+        <div class="t-item">
+          <div class="t-date">May — Nov 2021</div>
+          <div class="t-role">IT Automation &amp; Python</div>
+          <div class="t-org">Google — Coursera</div>
+          <div class="t-desc">Google's IT Automation and Python Professional certificate track.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><i></i></div>
+
+<section id="contact" class="wrap reveal">
+  <h2 class="section-title">Corres<em style="font-style:italic; color:var(--gold-light);">pondence</em></h2>
+
+  <div class="contact-top">
+    <div class="contact-row">
+      <div class="contact-key">Phone</div>
+      <a class="contact-val" href="tel:+989164420023">+98 916 442 0023</a>
+    </div>
+    <div class="contact-row">
+      <div class="contact-key">WhatsApp</div>
+      <a class="contact-val" href="https://wa.me/989164420023" target="_blank" rel="noopener">+98 916 442 0023</a>
+    </div>
+    <div class="contact-row">
+      <div class="contact-key">Address</div>
+      <div class="contact-val" style="color:var(--ivory); font-style:normal; font-family:var(--sans); font-size:17px;">Shiraz, Fars, Iran</div>
+    </div>
+    <div class="contact-row">
+      <div class="contact-key">Email</div>
+      <a class="contact-val" href="https://rezarh.ir/cdn-cgi/l/email-protection" target="_blank" rel="noopener">Send a message →</a>
+    </div>
+  </div>
+
+  <div class="eyebrow">Elsewhere</div>
+  <div class="directory">
+    <a class="dir-row" href="https://t.me/TheOnlyKingpin" target="_blank" rel="noopener"><span class="dir-label">Telegram</span><span class="dir-handle">@TheOnlyKingpin <span class="dir-arrow">→</span></span></a>
+    <a class="dir-row" href="https://www.linkedin.com/in/reza-rohani-47853b212/" target="_blank" rel="noopener"><span class="dir-label">LinkedIn</span><span class="dir-handle">reza-rohani <span class="dir-arrow">→</span></span></a>
+    <a class="dir-row" href="https://github.com/theonlykingpin" target="_blank" rel="noopener"><span class="dir-label">GitHub</span><span class="dir-handle">theonlykingpin <span class="dir-arrow">→</span></span></a>
+    <a class="dir-row" href="https://gitlab.com/theonlykingpin" target="_blank" rel="noopener"><span class="dir-label">GitLab</span><span class="dir-handle">theonlykingpin <span class="dir-arrow">→</span></span></a>
+    <a class="dir-row" href="https://stackoverflow.com/users/17269541/reza-rohani" target="_blank" rel="noopener"><span class="dir-label">Stack&nbsp;Overflow</span><span class="dir-handle">reza-rohani <span class="dir-arrow">→</span></span></a>
+    <a class="dir-row" href="https://leetcode.com/theonlykingpin/" target="_blank" rel="noopener"><span class="dir-label">LeetCode</span><span class="dir-handle">theonlykingpin <span class="dir-arrow">→</span></span></a>
+    <a class="dir-row" href="https://www.instagram.com/__rezarohani__/" target="_blank" rel="noopener"><span class="dir-label">Instagram</span><span class="dir-handle">@__rezarohani__ <span class="dir-arrow">→</span></span></a>
+    <a class="dir-row" href="https://twitter.com/RezaRoh59001712" target="_blank" rel="noopener"><span class="dir-label">Twitter</span><span class="dir-handle">@RezaRoh59001712 <span class="dir-arrow">→</span></span></a>
+    <a class="dir-row" href="https://discord.gg/fapAV7kN" target="_blank" rel="noopener"><span class="dir-label">Discord</span><span class="dir-handle">invite <span class="dir-arrow">→</span></span></a>
+    <a class="dir-row" href="https://www.reddit.com/user/Both-Leader-4775" target="_blank" rel="noopener"><span class="dir-label">Reddit</span><span class="dir-handle">Both-Leader-4775 <span class="dir-arrow">→</span></span></a>
+    <a class="dir-row" href="https://www.quora.com/profile/TheOnlyKIngpin" target="_blank" rel="noopener"><span class="dir-label">Quora</span><span class="dir-handle">TheOnlyKIngpin <span class="dir-arrow">→</span></span></a>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span class="nav-mark">R · R</span>
+  <span>© 2026 Reza Rohani — Shiraz, Iran</span>
+</footer>
+
+<script>
+  // Intro veil
+  (function(){
+    var veil = document.getElementById('veil');
+    window.addEventListener('load', function(){
+      setTimeout(function(){ veil.classList.add('hide'); }, 700);
+    });
+  })();
+
+  // Typed role line in hero terminal
+  (function(){
+    var text = "→ IT Manager · Back-End Web Developer";
+    var el = document.getElementById('typed-role');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) { el.textContent = text; return; }
+    var i = 0;
+    function tick(){
+      if (i <= text.length){
+        el.textContent = text.slice(0, i);
+        i++;
+        setTimeout(tick, 32);
+      }
+    }
+    setTimeout(tick, 1500);
+  })();
+
+  // Scroll-reveal for sections
+  (function(){
+    var items = document.querySelectorAll('.reveal');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced){ items.forEach(function(el){ el.classList.add('in'); }); return; }
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('in');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(function(el){ obs.observe(el); });
+  })();
+
+  // Count up the years-of-experience stat once it scrolls into view
+  (function(){
+    var el = document.querySelector('.stat-figure');
+    if (!el) return;
+    var target = 15;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced){ el.textContent = target + '+'; return; }
+    var done = false;
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting && !done){
+          done = true;
+          var n = 0;
+          var step = setInterval(function(){
+            n++;
+            el.textContent = n + '+';
+            if (n >= target){ clearInterval(step); }
+          }, 70);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    obs.observe(el);
+  })();
+
+  // Rotating tick-mark bezel around the seal
+  (function(){
+    var orbit = document.querySelector('.seal-orbit');
+    if (!orbit) return;
+    var count = 24;
+    for (var k = 0; k < count; k++){
+      var tick = document.createElement('i');
+      tick.style.transform = 'rotate(' + (k * (360 / count)) + 'deg)';
+      orbit.appendChild(tick);
+    }
+  })();
+
+  // Subtle tilt on skill cards
+  (function(){
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+    if (window.matchMedia('(hover: none)').matches) return; // skip on touch devices
+    document.querySelectorAll('.skill-card').forEach(function(card){
+      card.addEventListener('mousemove', function(e){
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = 'rotateY(' + (x * 8) + 'deg) rotateX(' + (y * -8) + 'deg) translateZ(4px)';
+      });
+      card.addEventListener('mouseleave', function(){
+        card.style.transform = '';
+      });
+    });
+  })();
+
+  (function(){
+    var links = document.querySelectorAll('.nav-links a');
+    var map = {};
+    links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+    var sections = Object.keys(map).map(function(id){ return document.getElementById(id); }).filter(Boolean);
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          links.forEach(function(a){ a.style.color = ''; });
+          map[entry.target.id].style.color = 'var(--gold-light)';
+        }
+      });
+    }, { threshold: 0, rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(function(s){ obs.observe(s); });
+  })();
+
+</script>
+
+</body>
 </html>
