@@ -237,12 +237,36 @@
     display:flex; align-items:center; justify-content:center;
     position:relative;
     flex-shrink:0;
+    overflow:visible;
   }
   .seal::before{
     content:'';
     position:absolute; inset:14px;
     border:1px solid var(--gold-dim);
     border-radius:50%;
+    z-index:2;
+    pointer-events:none;
+  }
+  .seal-photo{
+    width:calc(100% - 28px);
+    height:calc(100% - 28px);
+    border-radius:50%;
+    object-fit:cover;
+    filter:grayscale(20%) sepia(18%) contrast(1.05) brightness(0.95);
+  }
+  .seal-badge{
+    position:absolute;
+    bottom:-6px; right:-6px;
+    width:42px; height:42px;
+    border-radius:50%;
+    background:var(--ink);
+    border:1px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:15px;
+    color:var(--gold-light);
+    z-index:3;
   }
   .seal-mono{
     font-family:var(--serif);
@@ -376,7 +400,8 @@
   }
   .skill-name{
     font-family:var(--serif);
-    font-size:24px;
+    font-size:clamp(18px, 2.1vw, 24px);
+    line-height:1.15;
     font-style:italic;
     color:var(--ivory);
   }
@@ -544,7 +569,10 @@
       </a>
     </div>
     <div class="seal">
-      <div class="seal-mono">RR</div>
+      <img class="seal-photo" src="https://rezarh.ir/statics/image/avatar2.jpg" alt="Portrait of Reza Rohani" loading="eager"
+           onerror="this.style.display='none'; this.parentElement.querySelector('.seal-mono').style.display='block';">
+      <div class="seal-mono" style="display:none;">RR</div>
+      <div class="seal-badge" aria-hidden="true">RR</div>
       <div class="seal-orbit" aria-hidden="true"></div>
     </div>
   </div>
@@ -574,11 +602,10 @@
     <div class="skill-card"><div class="skill-index">01</div><div class="skill-name">Python</div><div class="skill-rule"></div></div>
     <div class="skill-card"><div class="skill-index">02</div><div class="skill-name">GoLang</div><div class="skill-rule"></div></div>
     <div class="skill-card"><div class="skill-index">03</div><div class="skill-name">Django</div><div class="skill-rule"></div></div>
-    <div class="skill-card"><div class="skill-index">04</div><div class="skill-name">DRF</div><div class="skill-rule"></div></div>
+    <div class="skill-card"><div class="skill-index">04</div><div class="skill-name">Django REST Framework</div><div class="skill-rule"></div></div>
     <div class="skill-card"><div class="skill-index">05</div><div class="skill-name">Databases</div><div class="skill-rule"></div></div>
     <div class="skill-card"><div class="skill-index">06</div><div class="skill-name">Git</div><div class="skill-rule"></div></div>
     <div class="skill-card"><div class="skill-index">07</div><div class="skill-name">Docker</div><div class="skill-rule"></div></div>
-    <div class="skill-card"><div class="skill-index">08</div><div class="skill-name">Networking</div><div class="skill-rule"></div></div>
   </div>
 </section>
 
@@ -656,6 +683,10 @@
     </div>
     <div class="contact-row">
       <div class="contact-key">Email</div>
+      <a class="contact-val" href="https://rezarh.ir/cdn-cgi/l/email-protection" target="_blank" rel="noopener">Send a message →</a>
+    </div>
+    <div class="contact-row">
+      <div class="contact-key">Gmail</div>
       <a class="contact-val" href="https://rezarh.ir/cdn-cgi/l/email-protection" target="_blank" rel="noopener">Send a message →</a>
     </div>
   </div>
